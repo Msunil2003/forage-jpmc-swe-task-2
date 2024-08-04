@@ -213,9 +213,9 @@ def get(req_handler, routes):
                 req_handler.send_header('Access-Control-Allow-Origin', '*')
                 req_handler.end_headers()
                 params = read_params(req_handler.path)
-                data = json.dumps(handler(routes, params)) + '\n'
-                req_handler.wfile.write(bytes(data, encoding='utf-8'))
-                return
+            data = json.dumps(handler(routes, params)) + '\n'
+            req_handler.wfile.write(bytes(data, encoding='utf-8'))
+            return
 
 
 def run(routes, host='0.0.0.0', port=8080):
@@ -337,6 +337,6 @@ class App(object):
 
 if __name__ == '__main__':
     if not os.path.isfile('test.csv'):
-        print("No data found, generating...")
-        generate_csv()
-    run(App())
+     print("No data found, generating...")
+    generate_csv()
+run(App())
